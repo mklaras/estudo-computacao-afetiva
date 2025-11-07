@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <title>Entre o robô e o humano: o impacto do emissor na confiança do usuário</title>
+ <link rel="stylesheet" href="style.css">
+ <link rel="icon" href="data:,">
+</head>
+<body>
+ <div class="container">
+  <h2>Entre o robô e o humano: o impacto do emissor na confiança do usuário</h1>
+  <form id="surveyForm" novalidate>
+
+    <section id="intro" class="form-section active">
+    <h2>Termo de Consentimento Livre e Esclarecido</h2>
+    <p>
+     Olá participante!  Somos estudantes da disciplina Computação Afetiva 
+     do curso de Ciência da Computação na Universidade do Estado do Rio 
+     Grande do Norte e iremos realizar um estudo onde é importante sua atenção 
+     e sinceridade nas respostas. Por este motivo, precisamos de sua ajuda 
+     para validar os dados obtidos após a realizações do estudo.
+    </p>
+    <p>
+     Todos os dados produzidos pelos questionários são anônimos e confidenciais, 
+     apenas os pesquisadores relacionados com o projeto e possivelmente, 
+     serão utilizados para publicações em eventos científicos, sem a identificação dos participantes.
+    </p>
+    <p>
+     Para maiores detalhes entre em contato com as alunas Emilly Yorke e Maria Klara pelos e-mails: 
+     emillyyorke@alu.uern.br e mariaklara@alu.uern.br ou com o professor responsável 
+     Dr. Raul Benites Paradeda pelo e-mail: raulparadeda@uern.br.
+    </p>
+    <label>
+     <input type="checkbox" id="consentimento" required>
+     Eu li e concordo em participar deste estudo.
+   </label>
+    <button type="button" onclick="nextSection()">Iniciar</button>
+   </section>
+
+    <section id="preStudy" class="form-section">
+    <h2>Parte 1 - Perfil e Predisposição</h2>
+
+    <label>Idade: <input type="number" name="idade" required></label>
+
+    <label>Gênero:
+     <select name="genero" required>
+      <option value="">Selecione</option>
+      <option>Feminino</option>
+      <option>Masculino</option>
+      <option>Outro / Prefiro não responder</option>
+     </select>
+    </label>
+
+    <label>Escolaridade:
+     <select name="escolaridade" required>
+      <option value="">Selecione</option>
+      <option>Ensino médio incompleto</option>
+      <option>Ensino médio completo</option>
+      <option>Superior Incompleto</option>
+      <option>Superior Completo</option>
+      <option>Pós-graduação</option>
+     </select>
+    </label>
+
+    <p>Familiaridade com tecnologia:</p>
+    <div class="likert" id="tecnologia"></div> 
+
+    <h3>Predisposição à confiança</h3>
+    <div class="likert-group">
+     <p>Costumo confiar facilmente em novas tecnologias.</p>
+     <div class="likert" id="conf-tec"></div>
+
+     <p>Robôs podem transmitir informações confiáveis.</p>
+     <div class="likert" id="robos-info"></div>
+
+     <p>Prefiro receber informações de pessoas em vez de robôs.</p>
+     <div class="likert" id="pref-humanos"></div>
+    </div>
+
+    <button type="button" onclick="nextSection()">Avançar</button>
+   </section>
+
+     <section id="study" class="form-section">
+    <h2>Parte 2 - Avaliação dos Vídeos</h2>
+    <h3>Assista ao vídeo com muita atenção e avalie o emissor e a notícia em cada escala abaixo.</p>
+
+    <div id="videoContainer"></div>
+    <p id="videoCaption" class="caption"></p>
+
+    <div id="videoQuestions" class="likert-group">
+     <h4>Sobre o apresentador na notícia do vídeo, você acha que ele é:</h3>
+     <div class="likert" id="q_competent"></div>
+     <div class="likert" id="q_dependable"></div>
+     <div class="likert" id="q_capable"></div>
+     <div class="likert" id="q_consistent"></div>
+     <div class="likert" id="q_reliable"></div>
+     <div class="likert" id="q_expert"></div>
+     <div class="likert" id="q_efficient"></div>
+     <div class="likert" id="q_precise"></div>
+     <div class="likert" id="q_cooperative"></div>
+     
+     <h3>Sobre o apresentador na notícia do vídeo, você acha parecido com um humano nesses apectos?</h3>
+    <div class="likert" id="q_humanlike"></div>
+     <div class="likert" id="q_lifelike"></div>
+     <div class="likert" id="q_warm"></div>
+     <div class="likert" id="q_empathetic"></div>
+     <div class="likert" id="q_personal"></div>
+     <div class="likert" id="q_social"></div>
+    </div>
+        <button type="button" onclick="nextVideo()">Próximo vídeo</button>
+   </section>
+
+    <section id="postStudy" class="form-section">
+    <h2>Parte 3 - Avaliação Geral</h2>
+
+    <p>Qual emissor te pareceu mais confiável?</p>
+    <select name="mais-confiavel" required>
+    <option value="">Selecione</option>
+     <option>Humano</option>
+     <option>NAO</option>
+     <option>Roboldo</option>
+    </select>
+
+    <p>Qual emissor te pareceu mais convincente?</p>
+    <select name="mais-convicente" required>
+     <option value="">Selecione</option>
+     <option>Humano</option>
+     <option>NAO</option>
+     <option>Roboldo</option>
+    </select>
+
+    <p>Qual emissor te pareceu mais agradável?</p>
+    <select name="mais-agradavel" required>
+     <option value="">Selecione</option>
+     <option>Humano</option>
+     <option>NAO</option>
+     <option>Roboldo</option>
+     </select>
+
+    <p>Em qual emissor você menos confiaria?</p>
+    <select name="menos-confiavel" required>
+     <option value="">Selecione</option>
+     <option>Humano</option>
+     <option>NAO</option>
+     <option>Roboldo</option>
+    </select>
+
+    <h3>Qual história você acha que é/são verdadeira(s)?</h3>
+    <label><input type="checkbox" name="hist_ver" value="humano"> Notícia 1 (Humano)</label><br>
+    <label><input type="checkbox" name="hist_ver" value="nao"> Notícia 2 (NAO)</label><br>
+    <label><input type="checkbox" name="hist_ver" value="roboldo"> Notícia 3 (Roboldo)</label>
+    <br><br>
+
+    <h3>Compreensão do áudio por emissor</h3>
+    <p>Você compreendeu o áudio do emissor Humano?</p>
+    <select name="comp_humano" required>
+     <option value="">Selecione</option><option>Sim</option><option>Parcialmente</option><option>Não</option>
+    </select>
+
+    <p>Você compreendeu o áudio do emissor NAO?</p>
+    <select name="comp_nao" required>
+     <option value="">Selecione</option><option>Sim</option><option>Parcialmente</option><option>Não</option>
+    </select>
+
+    <p>Você compreendeu o áudio do emissor Roboldo?</p>
+    <select name="comp_roboldo" required>
+     <option value="">Selecione</option><option>Sim</option><option>Parcialmente</option><option>Não</option>
+    </select>
+
+    <h3>Percepção geral</h3>
+    <p>Senti facilidade em distinguir quando a notícia era verdadeira ou falsa.</p>
+    <div class="likert" id="pos1"></div>
+
+    <p>A aparência dos emissores influenciou minha percepção de verdade.</p>
+    <div class="likert" id="pos2"></div>
+
+    <p>Robôs podem se tornar fontes confiáveis de informação no futuro.</p>
+    <div class="likert" id="pos3"></div>
+
+    <button type="submit">Enviar respostas</button>
+   </section>
+
+ <section id="endScreen" class="form-section">
+    <h2>Obrigado por participar!</h2>
+   <p>Sua contribuição é muito importante.</p>
+    <p><strong>Pesquisadora responsável:</strong> Maria Klara Brito Sena<br>
+    <strong>E-mail:</strong> mariaklara@seudominio.com</p>
+   </section>
+  </form>
+ </div>
+
+ <script src="script.js"></script>
+</body>
+</html>
